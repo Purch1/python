@@ -64,15 +64,20 @@ items = [
 
 # Better way to rewrite the above code using MAP
 prices = list(map(lambda item: item[1], items))
-print(prices)
+# print(prices)
 
 # How to use a SET
 numbers  = [1, 2, 3, 4]
 first = set(numbers)
 second = {1, 5}
 
-print(first | second)
-print(first & second)
-print(first - second)
-print(first ^ second)
+# print(first | second)
+# print(first & second)
+# print(first - second)
+# print(first ^ second)
 
+
+# How to use Dictionary
+point = dict(x=1, y=2)
+point["x"] = 10
+point["y"]

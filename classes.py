@@ -30,23 +30,49 @@
 # print(cloud.tags)
 
 # Inheritance
-class Animal:
+# class Animal:
+#     def __init__(self):
+#         self.age = 1
+
+#     def eat(self):
+#         print("eat")
+
+# class Mammal(Animal):
+#     def walk(self):
+#         print("walk")
+
+
+# class Fish(Animal):
+#     def swim(self):
+#         print("swim")
+
+# m = Mammal()
+# print(isinstance(m, object))
+
+
+# Good example of inheritance
+class InvalidOperationError(Exception):
+    pass
+
+
+class Stream:
     def __init__(self):
-        self.age = 1
-        
-    def eat(self):
-        print("eat")
+        self.opened = False
 
-class Mammal(Animal):
-    def walk(self):
-        print("walk")
+    def open(self):
+        if self.opened:
+            raise InvalidOperationError("Stream is already open")
+        self.opened = True
 
+    def close(self):
+        if not self.opened:
+            raise InvalidOperationError("Stream is already close")
+        self.opened = False
 
-class Fish(Animal):
-    def swim(self):
-        print("swim")
+class FileStream(Stream):
+    def read(self):
+        print("Reading data from a file")
 
-m = Mammal()
-print(isinstance(m, object))
-o = object()
-o.
+class NetworkStream(Stream):
+    def read(self):
+        print("Reading data from a network")
